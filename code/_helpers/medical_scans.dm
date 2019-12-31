@@ -342,7 +342,10 @@
 		dat += "<tr><th colspan='3'><center>Internal Organs</center></th></tr>"
 		for(var/list/I in scan["internal_organs"])
 			var/row = list()
-			row += "<tr><td>[I["name"]]</td>"
+			if(I["name"] == "inflamed appendix")
+				row += "<tr><td><span class='bad'>[I["name"]]</span></td>"
+			else
+				row += "<tr><td>[I["name"]]</td>"
 			if(I["is_broken"])
 				row += "<td><span class='bad'>Severe</span></td>"
 			else if(I["is_bruised"])
